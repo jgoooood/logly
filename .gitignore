@@ -1,0 +1,26 @@
+node_modules
+.next
+out
+build
+dist
+
+.env
+.env.local
+.env.*.local
+
+.DS_Store
+*.log
+.vscode
+.idea
+
+next-env.d.ts
+
+# typescript incremental cache
+*.tsbuildinfo
+
+# vercel (Stage 8 배포 시 생성)
+.vercel
+
+# test coverage (도입 시)
+coverage
+.nyc_output
