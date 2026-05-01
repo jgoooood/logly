@@ -17,8 +17,8 @@ Round 1 결과 (`.claude/stages/`) 와 구분된다.
 
 | # | 단계 | 우선도 | 완료일 | 핵심 산출물 |
 |---|---|---|---|---|
-| 1 | Rate Limit Redis 전환 | 🔴 | _진행 예정_ | Upstash Redis, `lib/rate-limit.ts` 교체, 인터페이스 보존 |
-| 2 | Supabase 타입 자동생성 | 🟡 | _진행 예정_ | `supabase gen types`, `<Database>` 제네릭 재부착 |
+| 1 | Rate Limit Redis 전환 | 🔴 | 2026-05-01 | [01-rate-limit-redis.md](./01-rate-limit-redis.md) — Upstash Redis, `lib/rate-limit.ts` 교체, 호출부 0줄 변경 |
+| 2 | Supabase 타입 자동생성 | 🟡 | 2026-05-01 | [02-supabase-types.md](./02-supabase-types.md) — `supabase gen types`, `<Database>` 제네릭 재부착, log.repo Database 파생 타입 |
 | 3 | npm audit 정리 | 🟡 | _진행 예정_ | 8건 (critical 1 / high 6 / moderate 1) 해소 |
 | 4 | 리포트 캐싱 | 🟡 | _진행 예정_ | `reports` 테이블, week_key 멱등 키, force 재생성 |
 | 5 | LogListView 페이지네이션 UI | 🟢 | _진행 예정_ | "더 보기" Server Action, cursor 기반 |

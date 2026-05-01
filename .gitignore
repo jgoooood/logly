@@ -4,9 +4,10 @@ out
 build
 dist
 
-.env
-.env.local
-.env.*.local
+# 환경변수 (모두 차단, 예시만 허용)
+.env*
+!.env.example
+!.env.sample
 
 .DS_Store
 *.log
@@ -24,3 +25,20 @@ next-env.d.ts
 # test coverage (도입 시)
 coverage
 .nyc_output
+
+# Claude Code 머신별 권한 캐시
+.claude/settings.local.json
+
+# Supabase CLI 로컬 캐시 (linked-project, cli-latest 등)
+supabase/.temp
+
+# 인증서 / 개인키 / 키스토어
+*.pem
+*.key
+*.p12
+*.pfx
+
+# 클라우드 자격증명 (혹시 모를 실수 차단)
+*-credentials.json
+*-service-account.json
+.aws

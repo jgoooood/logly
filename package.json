@@ -10,11 +10,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "npm run typecheck && npm run lint && npm run test"
+    "verify": "npm run typecheck && npm run lint && npm run test",
+    "types:gen": "npx supabase gen types typescript --project-id sservosnoklqcrbzreoq > types/database.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.45.0",
+    "@upstash/redis": "^1.37.0",
     "next": "14.2.5",
     "openai": "^4.56.0",
     "react": "^18.3.1",

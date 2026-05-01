@@ -23,8 +23,8 @@
 
 | # | 단계 | 우선도 | 상태 | 의존 |
 |---|---|---|---|---|
-| 1 | Rate Limit Redis 전환 | 🔴 | ⬜ 미시작 | — |
-| 2 | Supabase 타입 자동생성 + 제네릭 재부착 | 🟡 | ⬜ 미시작 | — |
+| 1 | Rate Limit Redis 전환 | 🔴 | ✅ 완료 | — |
+| 2 | Supabase 타입 자동생성 + 제네릭 재부착 | 🟡 | ✅ 완료 | — |
 | 3 | npm audit 취약점 정리 | 🟡 | ⬜ 미시작 | — |
 | 4 | 리포트 캐싱 (reports 테이블) | 🟡 | ⬜ 미시작 | 2 권장 |
 | 5 | LogListView 페이지네이션 UI | 🟢 | ⬜ 미시작 | — |
@@ -48,7 +48,7 @@
 
 ## Stage 1 — Rate Limit Redis 전환
 
-**상태**: ⬜ 미시작
+**상태**: ✅ 완료
 **우선도**: 🔴 운영 배포 전 필수
 **목표**: `lib/rate-limit.ts` 의 인메모리 Map 카운터를 Upstash Redis 기반으로 교체. 멀티 인스턴스/프로세스 재시작 견고성 확보.
 
@@ -74,16 +74,16 @@
 - 결과 ≤ limit이면 ok, 초과 시 `TTL` 조회해 retryAfter 계산
 
 ### DoD
-- [ ] dev 서버 재시작 후 카운터 유지됨 (Upstash 대시보드에서 키 확인)
-- [ ] transform / report 라우트 코드 변경 0줄
-- [ ] `npm run verify` 통과
-- [ ] `__tests__/unit/rate-limit.test.ts` 3 케이스 추가 + 통과
+- [x] dev 서버 재시작 후 카운터 유지됨 (Upstash 대시보드에서 키 확인)
+- [x] transform / report 라우트 코드 변경 0줄
+- [x] `npm run verify` 통과
+- [x] `__tests__/unit/rate-limit.test.ts` 3 케이스 추가 + 통과
 
 ---
 
 ## Stage 2 — Supabase 타입 자동생성 + 제네릭 재부착
 
-**상태**: ⬜ 미시작
+**상태**: ✅ 완료
 **우선도**: 🟡
 **목표**: 수동 `types/database.ts` 를 Supabase CLI 자동생성으로 교체. 클라이언트에 `<Database>` 제네릭 재부착해 컴파일 타임 안전성 복구.
 
@@ -102,10 +102,10 @@
 | `package.json` | 스크립트 `"types:gen": "supabase gen types typescript --project-id <REF> > types/database.ts"` 추가 |
 
 ### DoD
-- [ ] `npm run types:gen` 으로 `types/database.ts` 자동 갱신 동작
-- [ ] `from("logs")` 의 insert/select 가 typed (`Database['public']['Tables']['logs']['Row']` 추론)
-- [ ] 잘못된 컬럼명 사용 시 컴파일 에러 발생 검증
-- [ ] `npm run verify` 통과
+- [x] `npm run types:gen` 으로 `types/database.ts` 자동 갱신 동작
+- [x] `from("logs")` 의 insert/select 가 typed (`Database['public']['Tables']['logs']['Row']` 추론)
+- [x] 잘못된 컬럼명 사용 시 컴파일 에러 발생 검증
+- [x] `npm run verify` 통과
 
 ---
 
